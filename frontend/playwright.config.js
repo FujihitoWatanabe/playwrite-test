@@ -1,5 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+import path from 'path';
 
 /**
  * Read environment variables from file.
@@ -21,7 +22,34 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //reporter: 'html',
+  reporter: [
+    [
+      'html',
+      {
+        outputFolder: path.join(
+          'report',
+          new Date()
+            .toLocaleString('ja-JP', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              timeZone: 'Asia/Tokyo',
+            })
+            .replace(/\//g, '-')
+            .replace(/:/g, '-')
+        ),
+      },
+    ],
+  ],
+  // 追加設定
+  outputName: {
+    video: '[test-title].[ext]',
+    screenshot: '[test-title]-[png:index].png',
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     //動画を記録
