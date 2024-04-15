@@ -28,7 +28,7 @@ module.exports = defineConfig({
       'html',
       {
         outputFolder: path.join(
-          'report',
+          './playwright-report',
           new Date()
             .toLocaleString('ja-JP', {
               year: 'numeric',
@@ -45,11 +45,6 @@ module.exports = defineConfig({
       },
     ],
   ],
-  // 追加設定
-  outputName: {
-    video: '[test-title].[ext]',
-    screenshot: '[test-title]-[png:index].png',
-  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     //動画を記録
