@@ -3,6 +3,24 @@ const { defineConfig, devices } = require('@playwright/test');
 import path from 'path';
 
 /**
+ * function
+ */
+function getFormattedDateTime() {
+  return new Date()
+    .toLocaleString('ja-JP', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZone: 'Asia/Tokyo',
+    })
+    .replace(/\//g, '-')
+    .replace(/:/g, '-');
+}
+
+/**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
@@ -27,21 +45,7 @@ module.exports = defineConfig({
     [
       'html',
       {
-        outputFolder: path.join(
-          './playwright-report',
-          new Date()
-            .toLocaleString('ja-JP', {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit',
-              timeZone: 'Asia/Tokyo',
-            })
-            .replace(/\//g, '-')
-            .replace(/:/g, '-')
-        ),
+        outputFolder: path.join('./playwright-report', getFormattedDateTime()),
       },
     ],
   ],
