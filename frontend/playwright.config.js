@@ -47,8 +47,6 @@ module.exports = defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    //動画を記録
-    video: 'on',
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
@@ -61,6 +59,8 @@ module.exports = defineConfig({
       // - 'on'：常にスクリーンショットを撮る
       mode: 'on',
     },
+    //動画を記録
+    video: 'on',
   },
 
   /* Configure projects for major browsers */
