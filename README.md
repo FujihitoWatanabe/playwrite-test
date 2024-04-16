@@ -4,8 +4,8 @@ Playwright を使用したテストスイートの設定手順について説明
 
 ## 事前準備
 
-Node.js と npm を事前にインストールしておいてください。
-Visual Studio Code などのコードエディターがインストールされていることを確認します。
+Node.js 、 npm 、Visual Studio Code を事前にインストールしておいてください。
+[Node のバージョン](https://learn.microsoft.com/ja-jp/microsoft-edge/playwright/)はバージョン 12 以上の Node.js が必要です。
 
 ## インストール
 
