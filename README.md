@@ -27,6 +27,36 @@ Playwright をプロジェクトにインストールするには、2 つの方�
 
 どちらのコマンドを使うかは、プロジェクトの状況に応じて選択してください。
 
+### 初めてインストールする際に表示される対話
+
+初めて playwright をインストールする際に対話で質問されるので選択していきます。
+
+コンフィグファイルなど使用するファイル形式を TypeScript か JavaScript かの選択をします。このリポジトリでは JavaScript を選択しています。
+
+```
+? Do you want to use TypeScript or JavaScript? ...
+  TypeScript
+> JavaScript
+```
+
+テストファイルを設置するディレクトリ名を決めます。変更しないのであればエンターキーを押下して「tests」とします。
+
+```
+Where to put your end-to-end tests? » tests
+```
+
+GitHub Actions の workflow の追加を聞かれます。デフォルトでは N の false、y で true となります。GitHub Actions の workflow を利用する予定があるのであれば y を選択してエンターキーを押下。利用する予定がないのであればそのままエンターキーを押下します。
+
+```
+? Add a GitHub Actions workflow? (y/N) » false
+```
+
+テストで利用するブラウザをインストールするかを聞かれています。Y がデフォルトの true となります。n で false となります。デフォルトの Y のままエンターキーを押下してブラウザを利用できるようにします。
+
+```
+? Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) » true
+```
+
 ## テストの実行
 
 プロジェクトのルートディレクトリに tests ディレクトリを作成し、そこにテストファイルを配置します。
