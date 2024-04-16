@@ -1,6 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-const { getFormattedDateTime } = require('./utils/datetime-utils');
+const { getFormattedDateTime } = require('./utils/datetime');
 import path from 'path';
 
 /**
