@@ -1,24 +1,7 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const { getFormattedDateTime } = require('./utils/datetime-utils');
 import path from 'path';
-
-/**
- * function
- */
-function getFormattedDateTime() {
-  return new Date()
-    .toLocaleString('ja-JP', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      timeZone: 'Asia/Tokyo',
-    })
-    .replace(/\//g, '-')
-    .replace(/:/g, '-');
-}
 
 /**
  * Read environment variables from file.
@@ -40,7 +23,6 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  //reporter: 'html',
   reporter: [
     [
       'html',
